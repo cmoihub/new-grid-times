@@ -5,15 +5,25 @@ import { QUERIES } from "../../constants";
 
 const SecondaryStory = ({ id, title, image, location, abstract }) => {
   return (
-    <a href={`/story/${id}`}>
+    <Link href={`/story/${id}`}>
       <Wrapper>
         <Image alt={image.alt} src={image.src} />
         <Heading>{title}</Heading>
         <Abstract>{abstract}</Abstract>
       </Wrapper>
-    </a>
+    </Link>
   );
 };
+
+const Link = styled.a`
+  :not(:last-child) {
+    padding-bottom: 16px;
+    border-bottom: var(--border);
+  }
+  :not(:first-child) {
+    padding-top: 16px;
+  }
+`;
 
 const Wrapper = styled.article`
   display: grid;
@@ -23,6 +33,10 @@ const Wrapper = styled.article`
   gap: 4px 16px;
   grid-template-columns: 120px 1fr;
   color: var(--color-gray-900);
+
+  :not(:last-child) {
+    padding-bottom: 16px;
+  }
 
   @media ${QUERIES.tabletOnly} {
     grid-template-areas:

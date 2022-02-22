@@ -1,6 +1,6 @@
-import { createGlobalStyle } from 'styled-components/macro';
+import { createGlobalStyle } from "styled-components/macro";
 
-import { COLORS, WEIGHTS, FAMILIES } from '../../constants';
+import { COLORS, WEIGHTS, FAMILIES } from "../../constants";
 
 const GlobalStyles = createGlobalStyle`
 /* http://meyerweb.com/eric/tools/css/reset/
@@ -49,6 +49,8 @@ table {
 
 /* DESIGN TOKENS */
 html {
+  --border: 1px solid ${COLORS.gray[300]};
+
   --color-white: ${COLORS.white};
   --color-offblack: ${COLORS.offblack};
   --color-gray-100: ${COLORS.gray[100]};
