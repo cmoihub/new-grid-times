@@ -1,11 +1,13 @@
-import React from 'react';
-import styled from 'styled-components/macro';
+import React from "react";
+import styled from "styled-components/macro";
 
-import { MARKET_DATA, SPORTS_STORIES } from '../../data';
+import { MARKET_DATA, SPORTS_STORIES } from "../../data";
 
-import MarketCard from '../MarketCard';
-import SectionTitle from '../SectionTitle';
-import MiniStory from '../MiniStory';
+import { QUERIES } from "../../constants";
+
+import MarketCard from "../MarketCard";
+import SectionTitle from "../SectionTitle";
+import MiniStory from "../MiniStory";
 
 const SpecialtyStoryGrid = () => {
   return (
@@ -13,8 +15,8 @@ const SpecialtyStoryGrid = () => {
       <MarketsSection>
         <SectionTitle
           cornerLink={{
-            href: '/markets',
-            content: 'Visit Markets data »',
+            href: "/markets",
+            content: "Visit Markets data »",
           }}
         >
           Markets
@@ -28,8 +30,8 @@ const SpecialtyStoryGrid = () => {
       <SportsSection>
         <SectionTitle
           cornerLink={{
-            href: '/sports',
-            content: 'Visit Sports page »',
+            href: "/sports",
+            content: "Visit Sports page »",
           }}
         >
           Sports
@@ -47,14 +49,33 @@ const SpecialtyStoryGrid = () => {
 const Wrapper = styled.div`
   display: grid;
   gap: 48px;
+  @media ${QUERIES.laptopAndUp} {
+    gap: 16px;
+    grid-template-columns: repeat(2, 1fr);
+  }
 `;
 
-const MarketsSection = styled.section``;
+const MarketsSection = styled.section`
+  @media ${QUERIES.laptopAndUp} {
+    border-right: var(--border);
+    padding-right: 16px;
+  }
+`;
 
-const MarketCards = styled.div``;
+const MarketCards = styled.div`
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+`;
 
 const SportsSection = styled.section``;
 
-const SportsStories = styled.div``;
+const SportsStories = styled.ul`
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  max-height: 190px;
+  overflow: auto;
+`;
 
 export default SpecialtyStoryGrid;
